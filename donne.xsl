@@ -1,23 +1,38 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+
+>
+
 <xsl:template match="/">
   <html>
-    <head>
-      <title>foaf</title>
-      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-    </head>
-    <body>
-          <h1>NomComplet<xsl:value-of select="foaf:Person/foaf:name"/></h1>
-          <h1>Titre<xsl:value-of select="foaf:Person/foaf:title"/></h1>
-          <h1>Prenom<xsl:value-of select="foaf:Person/foaf:givenname"/></h1>
-          <h1>Nom<xsl:value-of select="foaf:Person/foaf:family_name"/></h1>
-          <h1>mail<xsl:value-of select="foaf:Person/foaf:mbox_sha1sum"/></h1>
-          <h1>HomePage<xsl:value-of select="foaf:Person/foaf:homepage"/></h1>
-          <h1>Telephone<xsl:value-of select="foaf:Person/foaf:phone"/></h1>
-          <h1>TravailHomepage<xsl:value-of select="foaf:Person/foaf:workplaceHomepage"/></h1>
-          <h1>InfoTravail<xsl:value-of select="foaf:Person/foaf:workInfoHomepage"/></h1>
-          <h1>EcoleHomepage<xsl:value-of select="foaf:Person/foaf:schoolHomepage"/></h1>
-    </body>
-   </html>
+  <body>
+  <h1><xsl:value-of select="rdf:RDF/foaf:Person/foaf:name"/></h1>
+  <h2>Person</h2>
+   <dl>
+    <dt>givenname</dt>
+    <dd><xsl:value-of select="//foaf:givenname" /></dd>
+    <dt>family_name</dt>
+    <dd><xsl:value-of select="//foaf:family_name" /></dd>
+    <dt>mbox_sha1sum</dt>
+    <dd><xsl:value-of select="//foaf:mbox_sha1sum" /></dd>
+    <dt>homepage</dt>
+    <dd><xsl:value-of select="//foaf:homepage" /></dd>
+    <dt>phone</dt>
+    <dd><xsl:value-of select="//foaf:phone" /></dd>
+    <dt>workplaceHomepage</dt>
+    <dd><xsl:value-of select="//foaf:workplaceHomepage" /></dd>
+    <dt>workInfoHomepage</dt>
+    <dd><xsl:value-of select="//foaf:workInfoHomepage" /></dd>
+    <dt>schoolHomepage</dt>
+    <dd><xsl:value-of select="//foaf:schoolHomepage" /></dd>
+   </dl>
+  </body>
+  </html>
 </xsl:template>
 </xsl:stylesheet>
